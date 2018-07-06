@@ -16,7 +16,7 @@
 				</li>
 			  
 				<li class="nav-item">
-					<a class="nav-link" href="#">Profile</a>
+					<a class="nav-link" href="<?=base_url()?>index.php/Main/profile">Profile</a>
 				</li>
 				
 				<? if ( $username == '') { ?>

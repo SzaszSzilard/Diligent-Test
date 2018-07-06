@@ -16,6 +16,13 @@ class Users extends CI_Model
 		return $this->db->get('Users')->num_rows();
 	}
 	
+	function getUserId($id) {
+		$this->db->where('id', $id);
+		$this->db->limit(1);
+		
+		return $this->db->get('Users')->result();
+	}
+	
 	function getUserEmail($email) {
 		$this->db->where('email', $email);
 		$this->db->limit(1);

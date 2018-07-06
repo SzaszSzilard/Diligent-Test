@@ -15,6 +15,24 @@ class Main extends CI_Controller {
 		$this->load->view('main', $this->data);
 	}
 	
+	public function profile()
+	{
+		
+		ini_set('display_errors', 1);
+		ini_set('display_startup_errors', 1);
+		error_reporting(E_ALL);
+		
+		$this->data['page'] 	= 'profile';
+		
+		$this->load->model('Users');
+		$result = $this->Users->getUserId($this->session->userid);
+		$this->data['id'] 		= $this->session->userid;
+		$this->data['email'] 	= $result[0]->email;
+		$this->data['password'] = $result[0]->password;
+		
+		$this->load->view('main', $this->data);
+	}	
+	
 	public function logout()
 	{
 		$this->session->sess_destroy();
@@ -23,10 +41,6 @@ class Main extends CI_Controller {
 	
 	public function login()
 	{
-		//ini_set('display_errors', 1);
-		//ini_set('display_startup_errors', 1);
-		//error_reporting(E_ALL);
-
 		if ( $this->session->user != '' )
 			redirect(base_url());
 		
@@ -43,7 +57,8 @@ class Main extends CI_Controller {
 			if (isset($result[0])) { // login is possible (user has been find) but maybe no caphcha
 				$this->session->userid = $result[0]->id;
 				$this->session->user = $result[0]->name; // logininformation has been set
-			}
+			} else
+				$this->data['error']="Wrong username or password";
 			
 			if ( $this->session->usr != $usr ) { // counting failed login attempt with the same user
 				$this->session->usr = $usr;

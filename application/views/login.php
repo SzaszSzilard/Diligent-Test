@@ -2,6 +2,11 @@
 	<h2>This is your login page :]</h2>
 	<form method="post">
 		
+		<?php 
+		if ( isset($error) && $error != '' )
+			echo "<div class='alert alert-danger'>$error</div>";
+		?>
+		
 		<div class="form-group">
 			<label for="usr">Name:</label>
 			<input type="text" class="form-control" id="usr" placeholder="Enter your username" name="usr" <?=$usr!=''?"value='$usr'":''?>>
