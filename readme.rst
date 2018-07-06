@@ -13,6 +13,7 @@ or any similar software wich is capable of serving php sites. The website curren
 sql7.freemysqlhosting.net
 
 It has only one single tablee whit 4 colums:
+
 - id int primary_key auto_increment
 - name varchar 128
 - name emial 128
