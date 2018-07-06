@@ -12,7 +12,7 @@ The instalation process is preatty easy. You just have to install an xamp,
 or any similar software wich is capable of serving php sites. The website currently are using a free mysql database:
 sql7.freemysqlhosting.net
 
-It has only one single tablee whit 4 colums:
+It has only one single data table whit 4 colums:
 
 - id int primary_key auto_increment
 - name varchar 128
