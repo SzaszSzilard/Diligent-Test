@@ -10,4 +10,6 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style.css">
 
     <title><?=$title?></title>
+	
+	<script src='https://www.google.com/recaptcha/api.js'></script>
   </head>

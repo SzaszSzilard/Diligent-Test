@@ -18,7 +18,8 @@
 				<li class="nav-item">
 					<a class="nav-link" href="#">Profile</a>
 				</li>
-
+				
+				<? if ( $username == '') { ?>
 				<li class="nav-item">
 					<a class="nav-link" href="<?=base_url()?>index.php/Main/registration">Registration</a>
 				</li>
@@ -26,8 +27,13 @@
 				<li class="nav-item">
 					<a class="nav-link" href="<?=base_url()?>index.php/Main/login">Login</a>
 				</li>
+				<? } else { ?>
+				<li class="nav-item">
+					<a class="nav-link" href="<?=base_url()?>index.php/Main/logout">Logout</a>
+				</li>
+				<? } ?>
 			</ul>
 
-			<span class="navbar-text">Hello, <?=$username=="anonymus"?"Please log in":$username?>!</span>
+			<span class="navbar-text">Hello, <?=$username==""?"Please log in":$username?>!</span>
 		  </div>
 	</nav>

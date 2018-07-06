@@ -1,0 +1,14 @@
+runtime: php55
+api_version: 1
+
+handlers:
+- url: /assets/css/*
+  static_dir: assets/css
+
+- url: /assets/images/(.+\.(gif|png|jpg))$
+  static_files: assets/images/\1
+  upload: assets/images/.+\.(gif|png|jpg)$
+  application_readable: true
+
+- url: .*
+  script: index.php
